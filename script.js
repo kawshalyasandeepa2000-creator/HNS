@@ -2840,9 +2840,7 @@ document.addEventListener("DOMContentLoaded", () => {
       left: cards[index].offsetLeft - cards[0].offsetLeft,
       behavior: "smooth"
     });
-
   }
-
   section.querySelector(".hs-prev")
     .addEventListener("click", () => {
       goToReview(index - 1);
@@ -2852,9 +2850,1507 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", () => {
       goToReview(index + 1);
     });
+     console.log(
+    "Helen & Sons Google Reviews loaded successfully!"
+  );
+});
+
+/* ==========================================
+   HELEN & SONS
+   MOVING FREE ZONE / LOGO STYLE SECTION
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Do not create the section twice.
+  if (document.getElementById("hs-moving-freezones")) {
+    return;
+  }
+
+  const freezones = [
+    {
+      name: "IFZA",
+      sub: "International Free Zone",
+      color: "#98773b"
+    },
+    {
+      name: "SAIF ZONE",
+      sub: "Sharjah Airport Free Zone",
+      color: "#b64545"
+    },
+    {
+      name: "KIZAD",
+      sub: "Khalifa Economic Zones",
+      color: "#52606b"
+    },
+    {
+      name: "Shams",
+      sub: "Sharjah Media City",
+      color: "#d3798e"
+    },
+    {
+      name: "meydan",
+      sub: "Free Zone",
+      color: "#36748b"
+    },
+    {
+      name: "SPC",
+      sub: "Free Zone",
+      color: "#39718f"
+    },
+    {
+      name: "Ajman FZ",
+      sub: "Ajman Free Zone",
+      color: "#52626d"
+    },
+    {
+      name: "RAKEZ",
+      sub: "Ras Al Khaimah Economic Zone",
+      color: "#15989d"
+    },
+    {
+      name: "DAFZ",
+      sub: "Dubai Airport Freezone",
+      color: "#326486"
+    }
+  ];
+
+  // CREATE SECTION
+
+  const section = document.createElement("section");
+
+  section.id = "hs-moving-freezones";
+
+  section.setAttribute(
+    "aria-label",
+    "UAE business setup options"
+  );
+
+  const logos = freezones.map(item => `
+    <div class="hs-freezone-logo"
+      style="--brand-color:${item.color}">
+
+      <strong>${item.name}</strong>
+      <small>${item.sub}</small>
+
+    </div>
+  `).join("");
+
+  // DUPLICATE THE ROW FOR CONTINUOUS SCROLLING
+
+  section.innerHTML = `
+    <div class="hs-freezone-content">
+
+      <p class="hs-freezone-eyebrow">
+        EXPLORE YOUR OPTIONS
+      </p>
+
+      <h2>UAE BUSINESS SETUP OPTIONS</h2>
+
+      <div class="hs-freezone-window"
+        aria-label="UAE free zones and economic zones">
+
+        <div class="hs-freezone-track">
+
+          <div class="hs-freezone-group">
+            ${logos}
+          </div>
+
+          <div class="hs-freezone-group"
+            aria-hidden="true">
+            ${logos}
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="hs-freezone-note">
+        Free zones shown for informational comparison
+        only. Inclusion does not imply an official
+        partnership or endorsement.
+      </p>
+
+    </div>
+  `;
+
+  // PLACE BEFORE PRICING OR CONTACT SECTION
+
+  const position = document.querySelector(
+    "#hs-pricing, #contact, section.contact, footer"
+  );
+
+  if (position) {
+    position.before(section);
+  } else {
+    document.body.appendChild(section);
+  }
+
+  // ==========================================
+  // CSS STYLES
+  // ==========================================
+
+  if (!document.getElementById(
+    "hs-moving-freezones-style"
+  )) {
+
+    const style = document.createElement("style");
+
+    style.id = "hs-moving-freezones-style";
+
+    style.textContent = `
+
+      #hs-moving-freezones {
+        box-sizing: border-box;
+        background: #f5f6fb;
+        color: #0b174c;
+        padding: 54px 0 43px;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #hs-moving-freezones * {
+        box-sizing: border-box;
+      }
+
+      #hs-moving-freezones .hs-freezone-content {
+        margin: auto;
+        max-width: 1400px;
+        text-align: center;
+      }
+
+      #hs-moving-freezones .hs-freezone-eyebrow {
+        margin: 0 0 8px;
+        color: #ad8351;
+        letter-spacing: 2.3px;
+        font-size: 11px;
+        font-weight: 750;
+      }
+
+      #hs-moving-freezones h2 {
+        margin: 0;
+        font-size: clamp(23px, 3vw, 32px);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.3;
+        font-weight: 800;
+        color: #0b174c;
+      }
+
+      /* MOVING AREA */
+
+      #hs-moving-freezones .hs-freezone-window {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin-top: 30px;
+
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 7%,
+          black 93%,
+          transparent 100%
+        );
+
+        mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 7%,
+          black 93%,
+          transparent 100%
+        );
+      }
+
+      /* ANIMATION TRACK */
+
+      #hs-moving-freezones .hs-freezone-track {
+        display: flex;
+        width: max-content;
+        animation: hs-freezones-move 30s linear infinite;
+        will-change: transform;
+      }
+
+      #hs-moving-freezones .hs-freezone-group {
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        gap: 0;
+      }
+
+      /* LOGO-STYLE CARDS */
+
+      #hs-moving-freezones .hs-freezone-logo {
+        display: flex;
+        width: 205px;
+        min-height: 86px;
+        flex: 0 0 205px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        margin: 0 12px;
+        padding: 12px;
+        background: rgba(255,255,255,.84);
+        border: 1px solid rgba(16,49,59,.07);
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(18,43,57,.035);
+      }
+
+      #hs-moving-freezones .hs-freezone-logo strong {
+        font-size: 22px;
+        font-weight: 850;
+        color: var(--brand-color, #14323b);
+        line-height: 1.13;
+        letter-spacing: -.4px;
+        white-space: nowrap;
+      }
+
+      #hs-moving-freezones .hs-freezone-logo small {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: .1px;
+        color: #68767d;
+        white-space: nowrap;
+      }
+
+      #hs-moving-freezones .hs-freezone-note {
+        margin: 22px 18px 0;
+        color: #768088;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      /* INFINITE MOVEMENT */
+
+      @keyframes hs-freezones-move {
+
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+
+      }
+
+      /* PAUSE WHEN MOUSE IS OVER THE LOGOS */
+
+      #hs-moving-freezones
+      .hs-freezone-window:hover
+      .hs-freezone-track {
+        animation-play-state: paused;
+      }
+
+      /* MOBILE VIEW */
+
+      @media (max-width: 650px) {
+
+        #hs-moving-freezones {
+          padding: 38px 0 32px;
+        }
+
+        #hs-moving-freezones .hs-freezone-window {
+          margin-top: 22px;
+        }
+
+        #hs-moving-freezones .hs-freezone-logo {
+          width: 174px;
+          flex-basis: 174px;
+          min-height: 77px;
+          margin: 0 8px;
+        }
+
+        #hs-moving-freezones .hs-freezone-logo strong {
+          font-size: 19px;
+        }
+
+        #hs-moving-freezones .hs-freezone-logo small {
+          font-size: 10px;
+        }
+
+        #hs-moving-freezones .hs-freezone-track {
+          animation-duration: 24s;
+        }
+
+      }
+
+      /* ACCESSIBILITY */
+
+      @media (prefers-reduced-motion: reduce) {
+
+        #hs-moving-freezones .hs-freezone-track {
+          animation: none;
+        }
+
+        #hs-moving-freezones .hs-freezone-window {
+          overflow-x: auto;
+          -webkit-mask-image: none;
+          mask-image: none;
+        }
+
+      }
+
+    `;
+
+    document.head.appendChild(style);
+  }
 
   console.log(
-    "Helen & Sons Google Reviews loaded successfully!"
+    "Helen & Sons moving free zone strip loaded."
+  );
+
+});
+
+/* ==========================================
+   HELEN & SONS
+   COMPANY VIDEO + INFORMATION SECTION
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // VIDEO SETTINGS
+  // For a local MP4, put company-video.mp4
+  // inside the same folder as index.html.
+  const videoFile = "company-video.mp4";
+
+  // Optional: Paste your YouTube Short URL here
+  // instead of using the local video.
+  const youtubeUrl = "https://www.youtube.com/shorts/1Knf8CgFfe8";
+
+  const phone = "971506335059";
+
+  // Prevent duplicate sections
+  if (document.getElementById("hs-company-video")) {
+    return;
+  }
+
+  // Extract YouTube video ID when applicable
+  function getYouTubeId(link) {
+    try {
+      const url = new URL(link);
+      const host = url.hostname.toLowerCase();
+
+      if (host === "youtu.be" || host === "www.youtu.be") {
+        return url.pathname.split("/")[1];
+      }
+
+      if (
+        host === "youtube.com" ||
+        host === "www.youtube.com" ||
+        host === "m.youtube.com"
+      ) {
+        if (url.pathname === "/watch") {
+          return url.searchParams.get("v");
+        }
+
+        const parts = url.pathname.split("/");
+
+        if (
+          parts[1] === "shorts" ||
+          parts[1] === "embed"
+        ) {
+          return parts[2];
+        }
+      }
+    } catch (error) {
+      return null;
+    }
+
+    return null;
+  }
+
+  const videoId = youtubeUrl
+    ? getYouTubeId(youtubeUrl)
+    : null;
+
+  let videoContent = "";
+
+  if (videoId && /^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
+
+    videoContent = `
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&playsinline=1&controls=1"
+        title="Helen and Sons company video"
+        loading="lazy"
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+        allowfullscreen>
+      </iframe>
+    `;
+
+  } else {
+
+    videoContent = `
+      <video
+        id="hs-company-video-player"
+        autoplay
+        muted
+        loop
+        playsinline
+        controls
+        preload="metadata"
+      >
+        <source src="${videoFile}" type="video/mp4">
+        Your browser does not support this video.
+      </video>
+
+      <div class="hs-video-error" hidden>
+        Video not found. Add company-video.mp4
+        to your website folder.
+      </div>
+    `;
+
+  }
+
+  // CREATE THE SECTION
+  const section = document.createElement("section");
+
+  section.id = "hs-company-video";
+
+  section.innerHTML = `
+    <div class="hs-video-layout">
+
+      <!-- LEFT: COMPANY VIDEO -->
+
+      <div class="hs-video-left">
+
+        <div class="hs-video-frame">
+          ${videoContent}
+        </div>
+
+        <div class="hs-video-label">
+          <span class="hs-video-dot"></span>
+          HELEN & SONS · SINCE 2007
+        </div>
+
+      </div>
+
+      <!-- RIGHT: COMPANY DETAILS -->
+
+      <div class="hs-video-right">
+
+        <p class="hs-video-eyebrow">
+          BUSINESS SETUP IN DUBAI MADE SIMPLE
+        </p>
+
+        <h2>
+          Company Formation
+          <span>Services in UAE</span>
+        </h2>
+
+        <p>
+          Dubai is one of the most strategic places
+          to start and grow a business in the UAE.
+          Helen & Sons helps entrepreneurs navigate
+          company formation with practical guidance.
+        </p>
+
+        <p>
+          From choosing the right business licence
+          to managing documentation and approvals,
+          our consultants support you through the
+          setup process.
+        </p>
+
+        <p>
+          We also assist with PRO services,
+          residence visas and corporate banking
+          applications, helping you focus on
+          growing your business.
+        </p>
+
+        <div class="hs-video-benefits">
+
+          <div>✓ Mainland Company Formation</div>
+
+          <div>✓ Free Zone Business Setup</div>
+
+          <div>✓ PRO & Visa Assistance</div>
+
+          <div>✓ Corporate Banking Support</div>
+
+        </div>
+
+        <a
+          class="hs-video-consultation"
+          href="https://wa.me/${phone}?text=${encodeURIComponent(
+            "Hello Helen & Sons, I watched your company video and would like a free business setup consultation."
+          )}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Free Consultation ↗
+        </a>
+
+      </div>
+
+    </div>
+  `;
+
+  // PLACE SECTION BELOW HERO, ABOVE ABOUT
+  const about = document.querySelector(
+    "#about, section.intro"
+  );
+
+  const hero = document.querySelector(
+    "#home, section.hero"
+  );
+
+  if (about) {
+    about.before(section);
+  } else if (hero) {
+    hero.after(section);
+  } else {
+    document.querySelector("main")?.prepend(section);
+  }
+
+  // ==========================================
+  // COMPANY VIDEO SECTION STYLES
+  // ==========================================
+
+  const style = document.createElement("style");
+
+  style.id = "hs-company-video-style";
+
+  style.textContent = `
+
+    #hs-company-video {
+      padding: 90px 25px;
+      background: #F5F6FC;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #0B233F;
+    }
+
+    #hs-company-video * {
+      box-sizing: border-box;
+    }
+
+    #hs-company-video .hs-video-layout {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* LEFT SIDE */
+
+    #hs-company-video .hs-video-left {
+      position: relative;
+      max-width: 430px;
+      width: 100%;
+      margin: auto;
+    }
+
+    #hs-company-video .hs-video-frame {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      max-height: 650px;
+      background: #0B233F;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+      position: relative;
+    }
+
+    #hs-company-video video,
+    #hs-company-video iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+    }
+
+    #hs-company-video .hs-video-error {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 35px;
+      text-align: center;
+      color: #FFFFFF;
+      background: #0B233F;
+      font-size: 15px;
+    }
+
+    #hs-company-video .hs-video-error[hidden] {
+      display: none !important;
+    }
+
+    #hs-company-video .hs-video-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+      color: #99703C;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    #hs-company-video .hs-video-dot {
+      width: 9px;
+      height: 9px;
+      background: #C99D61;
+      border-radius: 50%;
+    }
+
+    /* RIGHT SIDE */
+
+    #hs-company-video .hs-video-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #B18A53;
+      margin-bottom: 18px;
+    }
+
+    #hs-company-video h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #0B233F;
+      margin: 0 0 30px;
+    }
+
+    #hs-company-video h2 span {
+      color: #526080;
+    }
+
+    #hs-company-video .hs-video-right > p:not(.hs-video-eyebrow) {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #606A7B;
+      margin-bottom: 20px;
+    }
+
+    /* BENEFITS */
+
+    #hs-company-video .hs-video-benefits {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 25px 0 35px;
+    }
+
+    #hs-company-video .hs-video-benefits div {
+      font-size: 13px;
+      font-weight: 700;
+      color: #183B47;
+      background: #FFFFFF;
+      border-left: 3px solid #C99D61;
+      padding: 12px 14px;
+    }
+
+    /* CONSULTATION BUTTON */
+
+    #hs-company-video .hs-video-consultation {
+      display: inline-block;
+      background: #FFD428;
+      color: #0B233F;
+      padding: 17px 30px;
+      border-radius: 35px;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    #hs-company-video .hs-video-consultation:hover {
+      background: #E8B96A;
+      transform: translateY(-3px);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+
+      #hs-company-video .hs-video-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      #hs-company-video .hs-video-left {
+        max-width: 350px;
+      }
+
+      #hs-company-video .hs-video-right {
+        max-width: 680px;
+        margin: auto;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      #hs-company-video {
+        padding: 55px 18px;
+      }
+
+      #hs-company-video .hs-video-left {
+        max-width: 300px;
+      }
+
+      #hs-company-video .hs-video-benefits {
+        grid-template-columns: 1fr;
+      }
+
+      #hs-company-video h2 {
+        font-size: 31px;
+      }
+
+    }
+
+  `;
+
+  document.head.appendChild(style);
+
+  // Show a clear message if local MP4 fails to load.
+  const player = section.querySelector("video");
+  const errorMessage = section.querySelector(".hs-video-error");
+
+  if (player && errorMessage) {
+    player.addEventListener("error", () => {
+      errorMessage.hidden = false;
+    });
+
+    const source = player.querySelector("source");
+
+    if (source) {
+      source.addEventListener("error", () => {
+        errorMessage.hidden = false;
+      });
+    }
+  }
+
+  console.log("Helen & Sons company video section loaded!");
+
+});
+
+/* ==========================================
+   HELEN & SONS
+   CLICKABLE UAE GOVERNMENT SERVICES
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Prevent duplicate sections
+  if (document.getElementById("hs-government-services")) {
+    return;
+  }
+
+  // Official government website links
+  const services = [
+    {
+      short: "KHDA",
+      name: "Dubai Knowledge Authority",
+      detail: "Education services",
+      url: "https://web.khda.gov.ae/en/",
+      color: "#96285F"
+    },
+    {
+      short: "DHA",
+      name: "Dubai Health Authority",
+      detail: "Health services",
+      url: "https://www.dha.gov.ae/en/home",
+      color: "#008775"
+    },
+    {
+      short: "MOI",
+      name: "UAE Ministry of Interior",
+      detail: "Interior services",
+      url: "https://www.moi.gov.ae/en/home",
+      color: "#23694C"
+    },
+    {
+      short: "MOET",
+      name: "Ministry of Economy & Tourism",
+      detail: "Economy services",
+      url: "https://www.moet.gov.ae/en/home",
+      color: "#B48A43"
+    },
+    {
+      short: "AMER",
+      name: "Amer / GDRFA Dubai",
+      detail: "Immigration services",
+      url: "https://www.gdrfad.gov.ae/en/customer-happiness-centers",
+      color: "#087F76"
+    },
+    {
+      short: "DUBAI",
+      name: "Dubai Government",
+      detail: "Government services",
+      url: "https://www.dubai.ae/",
+      color: "#B68A48"
+    },
+    {
+      short: "DM",
+      name: "Dubai Municipality",
+      detail: "Municipality services",
+      url: "https://www.dm.gov.ae/",
+      color: "#A56C31"
+    },
+    {
+      short: "ICP",
+      name: "ICP UAE",
+      detail: "Identity and residence",
+      url: "https://icp.gov.ae/",
+      color: "#2B6A87"
+    },
+    {
+      short: "MOHRE",
+      name: "Ministry of Human Resources",
+      detail: "Employment services",
+      url: "https://www.mohre.gov.ae/",
+      color: "#367D5E"
+    }
+  ];
+
+  // Build clickable cards
+  function createCards(duplicate = false) {
+
+    return services.map(service => `
+
+      <a
+        class="hs-gov-card"
+        href="${service.url}"
+        target="_blank"
+        rel="noopener noreferrer"
+        ${duplicate ? 'tabindex="-1"' : ""}
+        title="Open ${service.name} website"
+      >
+
+        <span
+          class="hs-gov-icon"
+          style="--gov-color:${service.color}"
+        >
+          ${service.short}
+        </span>
+
+        <strong>${service.name}</strong>
+
+        <small>
+          ${service.detail} ↗
+        </small>
+
+      </a>
+
+    `).join("");
+  }
+
+  // Create the government services section
+  const section = document.createElement("section");
+
+  section.id = "hs-government-services";
+
+  section.innerHTML = `
+
+    <div class="hs-gov-heading">
+
+      <p>OFFICIAL UAE SERVICE LINKS</p>
+
+      <h2>
+        UAE Government <span>Services</span>
+      </h2>
+
+      <p class="hs-gov-description">
+        Click any icon to visit the relevant
+        government website.
+      </p>
+
+    </div>
+
+    <div class="hs-gov-window">
+
+      <div class="hs-gov-track">
+
+        <div class="hs-gov-group">
+          ${createCards()}
+        </div>
+
+        <div class="hs-gov-group" aria-hidden="true">
+          ${createCards(true)}
+        </div>
+
+      </div>
+
+    </div>
+
+    <p class="hs-gov-note">
+      Independent links for visitor convenience.
+      Listing an authority does not imply an
+      official partnership or endorsement.
+    </p>
+
+  `;
+
+  // Place after the moving Free Zone section,
+  // otherwise before pricing or contact.
+
+  const freezoneSection = document.getElementById(
+    "hs-moving-freezones"
+  );
+
+  const pricingSection = document.getElementById(
+    "hs-pricing"
+  );
+
+  const contactSection = document.getElementById(
+    "contact"
+  );
+
+  if (freezoneSection) {
+
+    freezoneSection.insertAdjacentElement(
+      "afterend",
+      section
+    );
+
+  } else if (pricingSection) {
+
+    pricingSection.before(section);
+
+  } else if (contactSection) {
+
+    contactSection.before(section);
+
+  } else {
+
+    document.querySelector("footer")?.before(section);
+
+  }
+
+  // ==========================================
+  // GOVERNMENT SERVICES DESIGN
+  // ==========================================
+
+  const style = document.createElement("style");
+
+  style.id = "hs-gov-style";
+
+  style.textContent = `
+
+    #hs-government-services {
+      padding: 65px 0 40px;
+      background: #F5F6FC;
+      color: #0B233F;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    #hs-government-services * {
+      box-sizing: border-box;
+    }
+
+    #hs-government-services .hs-gov-heading {
+      text-align: center;
+      padding: 0 20px;
+      margin-bottom: 35px;
+    }
+
+    #hs-government-services .hs-gov-heading > p:first-child {
+      color: #B48A43;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    #hs-government-services h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      color: #0B233F;
+      margin: 12px 0;
+      line-height: 1.25;
+    }
+
+    #hs-government-services h2 span {
+      color: #C59B61;
+    }
+
+    #hs-government-services .hs-gov-description {
+      color: #657384;
+      font-size: 15px;
+    }
+
+    /* MOVING ICON AREA */
+
+    #hs-government-services .hs-gov-window {
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 7%,
+        black 93%,
+        transparent
+      );
+    }
+
+    #hs-government-services .hs-gov-track {
+      display: flex;
+      width: max-content;
+      animation: hsGovSlide 42s linear infinite;
+    }
+
+    #hs-government-services .hs-gov-group {
+      display: flex;
+      flex-shrink: 0;
+    }
+
+    /* CLICKABLE CARDS */
+
+    #hs-government-services .hs-gov-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      width: 220px;
+      min-height: 155px;
+      flex-shrink: 0;
+
+      margin: 8px;
+      padding: 18px 14px;
+
+      background: #FFFFFF;
+      border: 1px solid #E4E8EE;
+      border-bottom: 3px solid #C59B61;
+      border-radius: 12px;
+
+      color: #0B233F;
+      text-decoration: none;
+
+      box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease,
+                  box-shadow 0.25s ease;
+    }
+
+    #hs-government-services .hs-gov-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.13);
+    }
+
+    #hs-government-services .hs-gov-card:focus-visible {
+      outline: 3px solid #D4A75F;
+      outline-offset: 3px;
+    }
+
+    /* LOGO-STYLE ICON */
+
+    #hs-government-services .hs-gov-icon {
+      display: grid;
+      place-items: center;
+
+      min-width: 68px;
+      height: 45px;
+      padding: 6px 10px;
+
+      margin-bottom: 14px;
+
+      border-radius: 8px;
+      background: #F3F4F7;
+
+      color: var(--gov-color);
+      font-size: 18px;
+      font-weight: 850;
+    }
+
+    #hs-government-services .hs-gov-card strong {
+      font-size: 14px;
+      line-height: 1.35;
+      color: #102F39;
+    }
+
+    #hs-government-services .hs-gov-card small {
+      font-size: 12px;
+      color: #71808B;
+      margin-top: 8px;
+    }
+
+    /* MOVING ANIMATION */
+
+    @keyframes hsGovSlide {
+
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+
+    }
+
+    /* PAUSE ON HOVER OR KEYBOARD FOCUS */
+
+    #hs-government-services .hs-gov-window:hover
+    .hs-gov-track,
+
+    #hs-government-services .hs-gov-window:focus-within
+    .hs-gov-track {
+      animation-play-state: paused;
+    }
+
+    /* DISCLAIMER */
+
+    #hs-government-services .hs-gov-note {
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.6;
+      color: #78848E;
+      padding: 0 20px;
+      margin: 25px auto 0;
+      max-width: 850px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+
+      #hs-government-services {
+        padding: 45px 0 35px;
+      }
+
+      #hs-government-services .hs-gov-card {
+        width: 185px;
+        min-height: 145px;
+      }
+
+      #hs-government-services .hs-gov-track {
+        animation-duration: 35s;
+      }
+
+    }
+
+    /* ACCESSIBILITY */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      #hs-government-services .hs-gov-track {
+        animation: none;
+      }
+
+      #hs-government-services .hs-gov-window {
+        overflow-x: auto;
+        mask-image: none;
+      }
+
+      #hs-government-services
+      .hs-gov-group[aria-hidden="true"] {
+        display: none;
+      }
+
+    }
+
+  `;
+
+  document.head.appendChild(style);
+
+  console.log(
+    "Helen & Sons Government Services loaded!"
+  );
+
+});
+
+/* ==========================================
+   HELEN & SONS
+   PLAYFAIR DISPLAY FONT FOR ENTIRE WEBSITE
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Load Playfair Display from Google Fonts
+
+  if (!document.getElementById("hs-playfair-font")) {
+
+    const fontLink = document.createElement("link");
+
+    fontLink.id = "hs-playfair-font";
+
+    fontLink.rel = "stylesheet";
+
+    fontLink.href =
+      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap";
+
+    document.head.appendChild(fontLink);
+
+  }
+
+  // Apply Playfair Display to the website
+
+  if (!document.getElementById("hs-playfair-style")) {
+
+    const style = document.createElement("style");
+
+    style.id = "hs-playfair-style";
+
+    style.textContent = `
+
+      /* GLOBAL WEBSITE FONT */
+
+      body,
+      body *:not(svg):not(path):not(i) {
+        font-family: 'Playfair Display',
+                     Georgia,
+                     serif !important;
+      }
+
+      /* HEADINGS */
+
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      /* PARAGRAPHS */
+
+      p, li, span, label {
+        line-height: 1.7;
+      }
+
+      /* NAVIGATION */
+
+      nav a {
+        font-weight: 600;
+      }
+
+      /* BUTTONS */
+
+      button,
+      .btn,
+      input,
+      textarea,
+      select {
+        font-family: 'Playfair Display',
+                     Georgia,
+                     serif !important;
+      }
+
+      /* MOBILE READABILITY */
+
+      @media (max-width: 768px) {
+
+        h1 {
+          line-height: 1.2;
+        }
+
+        h2 {
+          line-height: 1.3;
+        }
+
+      }
+
+    `;
+
+    document.head.appendChild(style);
+
+  }
+
+  console.log(
+    "Helen & Sons Playfair Display font applied!"
+  );
+
+});
+
+/* ==========================================
+   HELEN & SONS
+   PLAYFAIR DISPLAY FONT FOR ENTIRE WEBSITE
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Load Playfair Display from Google Fonts
+
+  if (!document.getElementById("hs-playfair-font")) {
+
+    const fontLink = document.createElement("link");
+
+    fontLink.id = "hs-playfair-font";
+
+    fontLink.rel = "stylesheet";
+
+    fontLink.href =
+      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap";
+
+    document.head.appendChild(fontLink);
+
+  }
+
+  // Apply Playfair Display to the website
+
+  if (!document.getElementById("hs-playfair-style")) {
+
+    const style = document.createElement("style");
+
+    style.id = "hs-playfair-style";
+
+    style.textContent = `
+
+      /* GLOBAL WEBSITE FONT */
+
+      body,
+      body *:not(svg):not(path):not(i) {
+        font-family: 'Playfair Display',
+                     Georgia,
+                     serif !important;
+      }
+
+      /* HEADINGS */
+
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      /* PARAGRAPHS */
+
+      p, li, span, label {
+        line-height: 1.7;
+      }
+
+      /* NAVIGATION */
+
+      nav a {
+        font-weight: 600;
+      }
+
+      /* BUTTONS */
+
+      button,
+      .btn,
+      input,
+      textarea,
+      select {
+        font-family: 'Playfair Display',
+                     Georgia,
+                     serif !important;
+      }
+
+      /* MOBILE READABILITY */
+
+      @media (max-width: 768px) {
+
+        h1 {
+          line-height: 1.2;
+        }
+
+        h2 {
+          line-height: 1.3;
+        }
+
+      }
+
+    `;
+
+    document.head.appendChild(style);
+
+  }
+
+  console.log(
+    "Helen & Sons Playfair Display font applied!"
+  );
+
+});
+
+/* ==========================================
+   HELEN & SONS
+   PLAYFAIR DISPLAY FONT FOR ENTIRE WEBSITE
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Load Playfair Display from Google Fonts
+
+  if (!document.getElementById("hs-playfair-font")) {
+
+    const fontLink = document.createElement("link");
+
+    fontLink.id = "hs-playfair-font";
+
+    fontLink.rel = "stylesheet";
+
+    fontLink.href =
+      "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap";
+
+    document.head.appendChild(fontLink);
+
+  }
+
+  // Apply Playfair Display to the website
+
+  if (!document.getElementById("hs-playfair-style")) {
+
+    const style = document.createElement("style");
+
+    style.id = "hs-playfair-style";
+
+    style.textContent = `
+
+      /* GLOBAL WEBSITE FONT */
+
+      body,
+      body *:not(svg):not(path):not(i) {
+        font-family: 'Playfair Display',
+                     Georgia,
+                     serif !important;
+      }
+
+      /* HEADINGS */
+
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      /* PARAGRAPHS */
+
+      p, li, span, label {
+        line-height: 1.7;
+      }
+
+      /* NAVIGATION */
+
+      nav a {
+        font-weight: 600;
+      }
+
+      /* BUTTONS */
+
+      button,
+      .btn,
+      input,
+      textarea,
+      select {
+        font-family: 'Playfair Display',
+                     Georgia,
+                     serif !important;
+      }
+
+      /* MOBILE READABILITY */
+
+      @media (max-width: 768px) {
+
+        h1 {
+          line-height: 1.2;
+        }
+
+        h2 {
+          line-height: 1.3;
+        }
+
+      }
+
+    `;
+
+    document.head.appendChild(style);
+
+  }
+
+  console.log(
+    "Helen & Sons Playfair Display font applied!"
   );
 
 });
