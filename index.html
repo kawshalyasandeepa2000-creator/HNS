@@ -1,5 +1,510 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Helen and Sons UAE business setup and corporate services"><title>Helen & Sons | Business Setup in UAE</title><link rel="stylesheet" href="style.css"></head><body><header class="header"><a class="logo" href="#home">HELEN <span>&</span> SONS<small>BUSINESS CONSULTANCY</small></a><button id="menuBtn" class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav id="nav"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#process">How it Works</a><a href="#contact">Contact</a><a class="navcta" href="#contact">Free Consultation ↗</a></nav></header><main><section class="hero" id="home"><div class="heroShade"></div><div class="heroContent"><p class="eyebrow">YOUR PARTNER FOR GROWTH IN THE UAE</p><h1>Build your business.<br><em>Shape your future.</em></h1><p class="lead">From mainland and free zone formation to visas, banking and corporate services — we make starting in the UAE simpler.</p><div class="actions"><a class="btn" href="#contact">Start Your Journey ↗</a><a class="outline" href="#services">Explore Services ↓</a></div><div class="stats"><div><strong>19</strong><span>Years of experience</span></div><div><strong>3,400+</strong><span>Happy clients</span></div><div><strong>20+</strong><span>Experienced consultants</span></div></div></div></section><section class="section intro" id="about"><div><p class="eyebrow dark">WELCOME TO HELEN & SONS</p><h2>Big ambitions deserve the <em>right partner.</em></h2></div><div><p>Helen and Sons Business Consultancy supports entrepreneurs and established businesses across the UAE. Our consultants guide you through company formation, licensing, visas, banking and ongoing corporate requirements.</p><a class="textlink" href="https://helensons.ae/" target="_blank" rel="noopener">Learn about our company ↗</a></div></section><section class="section services" id="services"><div class="sectionTop"><div><p class="eyebrow dark">WHAT WE DO</p><h2>Everything your business <em>needs to thrive.</em></h2></div><p>Practical support at every stage of your UAE business journey.</p></div><div class="cards"><article class="card"><span class="num">01 /</span><div class="symbol">⌂</div><h3>Business Setup</h3><p>Mainland, free zone and offshore company formation with expert guidance.</p></article><article class="card"><span class="num">02 /</span><div class="symbol">▤</div><h3>PRO & Visa Services</h3><p>Support with government paperwork, approvals, residence and employment visas.</p></article><article class="card"><span class="num">03 /</span><div class="symbol">◈</div><h3>Corporate Banking</h3><p>Guidance with documentation and corporate bank account applications.</p></article><article class="card"><span class="num">04 /</span><div class="symbol">▥</div><h3>Accounting & Tax</h3><p>Bookkeeping, payroll, corporate tax, VAT and compliance support.</p></article></div></section><section class="section process" id="process"><p class="eyebrow">OUR APPROACH</p><h2>From idea to <em>open for business.</em></h2><div class="steps"><div><b>01</b><h3>Talk to us</h3><p>Tell us about your business goals.</p></div><div><b>02</b><h3>Choose your setup</h3><p>We help identify the right jurisdiction and licence.</p></div><div><b>03</b><h3>Get registered</h3><p>Our team guides your documents and approvals.</p></div><div><b>04</b><h3>Grow with confidence</h3><p>Access ongoing visa, banking and compliance support.</p></div></div></section><section class="section contact" id="contact"><div><p class="eyebrow dark">LET'S GET STARTED</p><h2>Your next chapter <em>starts here.</em></h2><p>Speak with our UAE business setup team today.</p><p><strong>Email</strong><br><a href="mailto:info@helensonsuae.com">info@helensonsuae.com</a></p><p><strong>Phone</strong><br><a href="tel:+971506335059">+971 50 633 5059</a></p><p><strong>Dubai office</strong><br>The Citadel Tower, Business Bay, Dubai, UAE</p></div><form id="contactForm"><h3>Request a consultation</h3><label>Your name<input name="name" required placeholder="Full name"></label><label>Email address<input type="email" name="email" required placeholder="you@example.com"></label><label>What do you need?<select name="service"><option>Business setup</option><option>Visa / PRO services</option><option>Banking support</option><option>Accounting / Tax</option><option>Other enquiry</option></select></label><label>Message<textarea name="message" rows="4" placeholder="Tell us about your plans"></textarea></label><button class="btn" type="submit">Prepare Email ↗</button><p class="note" id="formNote">This opens your email app; no information is stored on this demo website.</p></form></section></main><footer><div class="logo">HELEN <span>&</span> SONS<small>BUSINESS CONSULTANCY</small></div><p>Helping businesses grow across the UAE.</p><p>© <span id="year"></span> Helen & Sons. All rights reserved.</p></footer><script src="script.js"></script></body></html>
 
-    <script src="script.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <meta name="description"
+        content="Helen and Sons UAE business setup and corporate services">
+
+  <title>Helen &amp; Sons | Business Setup in UAE</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* NEW HELEN & SONS COMPANY LOGO */
+
+    .header .site-logo {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+      line-height: normal;
+    }
+
+    .header .site-logo img {
+      display: block;
+      height: 68px;
+      width: auto;
+      max-width: 260px;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+
+    @media (max-width: 600px) {
+      .header .site-logo img {
+        height: 50px;
+        max-width: 185px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER WITH NEW LOGO -->
+
+  <header class="header">
+
+    <a class="logo site-logo"
+       href="#home"
+       aria-label="Helen and Sons homepage">
+
+      <img
+        src="logo.png.png"
+        alt="Helen and Sons — Since 2007"
+        width="260"
+        height="74"
+      >
+    </a>
+
+    <button
+      id="menuBtn"
+      class="menu"
+      aria-label="Toggle navigation"
+      aria-expanded="false">
+      ☰
+    </button>
+
+    <nav id="nav">
+
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">How it Works</a>
+      <a href="#contact">Contact</a>
+
+      <a class="navcta" href="#contact">
+        Free Consultation ↗
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- HOME SECTION -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="heroShade"></div>
+
+      <div class="heroContent">
+
+        <p class="eyebrow">
+          YOUR PARTNER FOR GROWTH IN THE UAE
+        </p>
+
+        <h1>
+          Build your business.<br>
+          <em>Shape your future.</em>
+        </h1>
+
+        <p class="lead">
+          From mainland and free zone formation
+          to visas, banking and corporate services
+          — we make starting in the UAE simpler.
+        </p>
+
+        <div class="actions">
+
+          <a class="btn" href="#contact">
+            Start Your Journey ↗
+          </a>
+
+          <a class="outline" href="#services">
+            Explore Services ↓
+          </a>
+
+        </div>
+
+        <div class="stats">
+
+          <div>
+            <strong>19</strong>
+            <span>Years of experience</span>
+          </div>
+
+          <div>
+            <strong>3,400+</strong>
+            <span>Happy clients</span>
+          </div>
+
+          <div>
+            <strong>20+</strong>
+            <span>Experienced consultants</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+
+    <section class="section intro" id="about">
+
+      <div>
+
+        <p class="eyebrow dark">
+          WELCOME TO HELEN &amp; SONS
+        </p>
+
+        <h2>
+          Big ambitions deserve the
+          <em>right partner.</em>
+        </h2>
+
+      </div>
+
+      <div>
+
+        <p>
+          Helen and Sons Business Consultancy supports
+          entrepreneurs and established businesses
+          across the UAE.
+
+          Our consultants guide you through
+          company formation, licensing, visas,
+          banking and ongoing corporate requirements.
+        </p>
+
+        <a
+          class="textlink"
+          href="https://helensons.ae/"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Learn about our company ↗
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- OUR SERVICES -->
+
+    <section class="section services" id="services">
+
+      <div class="sectionTop">
+
+        <div>
+
+          <p class="eyebrow dark">
+            WHAT WE DO
+          </p>
+
+          <h2>
+            Everything your business
+            <em>needs to thrive.</em>
+          </h2>
+
+        </div>
+
+        <p>
+          Practical support at every stage
+          of your UAE business journey.
+        </p>
+
+      </div>
+
+      <div class="cards">
+
+        <!-- BUSINESS SETUP -->
+
+        <article class="card">
+
+          <span class="num">01 /</span>
+
+          <div class="symbol">⌂</div>
+
+          <h3>Business Setup</h3>
+
+          <p>
+            Mainland, free zone and offshore
+            company formation with expert guidance.
+          </p>
+
+        </article>
+
+
+        <!-- PRO & VISA SERVICES -->
+
+        <article class="card">
+
+          <span class="num">02 /</span>
+
+          <div class="symbol">▤</div>
+
+          <h3>PRO &amp; Visa Services</h3>
+
+          <p>
+            Support with government paperwork,
+            approvals, residence and employment visas.
+          </p>
+
+        </article>
+
+
+        <!-- CORPORATE BANKING -->
+
+        <article class="card">
+
+          <span class="num">03 /</span>
+
+          <div class="symbol">◈</div>
+
+          <h3>Corporate Banking</h3>
+
+          <p>
+            Guidance with documentation and
+            corporate bank account applications.
+          </p>
+
+        </article>
+
+
+        <!-- ACCOUNTING -->
+
+        <article class="card">
+
+          <span class="num">04 /</span>
+
+          <div class="symbol">▥</div>
+
+          <h3>Accounting &amp; Tax</h3>
+
+          <p>
+            Bookkeeping, payroll, corporate tax,
+            VAT and compliance support.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="section process" id="process">
+
+      <p class="eyebrow">
+        OUR APPROACH
+      </p>
+
+      <h2>
+        From idea to
+        <em>open for business.</em>
+      </h2>
+
+      <div class="steps">
+
+        <div>
+
+          <b>01</b>
+
+          <h3>Talk to us</h3>
+
+          <p>
+            Tell us about your business goals.
+          </p>
+
+        </div>
+
+        <div>
+
+          <b>02</b>
+
+          <h3>Choose your setup</h3>
+
+          <p>
+            We help identify the right
+            jurisdiction and licence.
+          </p>
+
+        </div>
+
+        <div>
+
+          <b>03</b>
+
+          <h3>Get registered</h3>
+
+          <p>
+            Our team guides your
+            documents and approvals.
+          </p>
+
+        </div>
+
+        <div>
+
+          <b>04</b>
+
+          <h3>Grow with confidence</h3>
+
+          <p>
+            Access ongoing visa,
+            banking and compliance support.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRICING PLANS AND MOVING FREE ZONE SECTION
+         ARE ADDED AUTOMATICALLY BY SCRIPT.JS -->
+
+
+    <!-- CONTACT SECTION -->
+
+    <section class="section contact" id="contact">
+
+      <div>
+
+        <p class="eyebrow dark">
+          LET'S GET STARTED
+        </p>
+
+        <h2>
+          Your next chapter
+          <em>starts here.</em>
+        </h2>
+
+        <p>
+          Speak with our UAE business setup team today.
+        </p>
+
+        <p>
+          <strong>Email</strong><br>
+
+          <a href="mailto:info@helensonsuae.com">
+            info@helensonsuae.com
+          </a>
+        </p>
+
+        <p>
+          <strong>Phone</strong><br>
+
+          <a href="tel:+971506335059">
+            +971 50 633 5059
+          </a>
+        </p>
+
+        <p>
+          <strong>Dubai office</strong><br>
+
+          The Citadel Tower,
+          Business Bay, Dubai, UAE
+        </p>
+
+      </div>
+
+
+      <!-- CONSULTATION FORM -->
+
+      <form id="contactForm">
+
+        <h3>Request a consultation</h3>
+
+        <label>
+          Your name
+
+          <input
+            name="name"
+            required
+            placeholder="Full name">
+        </label>
+
+        <label>
+          Email address
+
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="you@example.com">
+        </label>
+
+        <label>
+          What do you need?
+
+          <select name="service">
+
+            <option>Business setup</option>
+            <option>Visa / PRO services</option>
+            <option>Banking support</option>
+            <option>Accounting / Tax</option>
+            <option>Other enquiry</option>
+
+          </select>
+        </label>
+
+        <label>
+          Message
+
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Tell us about your plans">
+          </textarea>
+        </label>
+
+        <button class="btn" type="submit">
+          Prepare Email ↗
+        </button>
+
+        <p class="note" id="formNote">
+          This opens your email app;
+          no information is stored on this demo website.
+        </p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="logo">
+      HELEN <span>&amp;</span> SONS
+      <small>BUSINESS CONSULTANCY</small>
+    </div>
+
+    <p>
+      Helping businesses grow across the UAE.
+    </p>
+
+    <p>
+      © <span id="year"></span>
+      Helen &amp; Sons. All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- IMPORTANT JAVASCRIPT CONNECTION -->
+
+  <script src="script.js"></script>
+
 </body>
 </html>
